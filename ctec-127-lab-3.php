@@ -18,10 +18,7 @@
         <div class="row mt-5">
             <div class="col-md-6">
                 <h1>CTEC 127 - Winter 2022</h1>
-                <h2>YOUR NAME GOES HERE</h2>
-                <div class="alert alert-info" role="alert">
-                    <strong>PLEASE NOTE:</strong> You must enter information for all of the fields
-                </div>
+                <h2>Barron Jager</h2>
                 <?php
 
                 // Check to see if the PHP server received a POST request
@@ -50,7 +47,26 @@
                     $firstName = $_POST["firstname"];
 
                     // Your code goes below this comment
+                    $lastName = $_POST["lastname"];
+                    $email = $_POST["email"];
+                    $comments = $_POST["comments"];
                 }
+                ?>
+                <?php
+                	if (!empty($firstName) && !empty($lastName) && !empty($email) && !empty($comments)) {
+                        echo "<h4>Thank you for filling out the form! <br>Here is the information you entered:</h4>
+                        <ul>
+                        <li>First Name: $firstName</li>
+                        <li>Last Name: $lastName</li>
+                        <li>Email: $email</li>
+                        <li>Comments: $comments</li>
+                        </ul>";
+                    }
+                    else {
+                        echo "<div class=\"alert alert-info\" role=\"alert\">
+                            <strong>PLEASE NOTE:</strong> You must enter information for all of the fields
+                        </div>";
+                    }
                 ?>
                 <form action="ctec-127-lab-3.php" method="post">
                     <div class="mb-3">
@@ -60,15 +76,15 @@
                     </div>
                     <div class="mb-3">
                         <label for="lastname" class="form-label">Last Name</label>
-                        <input type="text" name="lastname" class="form-control" id="lastname" placeholder="Enter your last name">
+                        <input type="text" name="lastname" class="form-control" id="lastname" placeholder="Enter your last name" value="<?php echo isset($_POST["lastname"]) ? $_POST["lastname"] : ''; ?>">
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" name="email" class="form-control" id="email" placeholder="Enter your email address">
+                        <input type="email" name="email" class="form-control" id="email" placeholder="Enter your email address" value="<?php echo isset($_POST["email"]) ? $_POST["email"] : ''; ?>">
                     </div>
                     <div class="mb-3">
                         <label for="comments" class="form-label">Comments</label>
-                        <textarea name="comments" class="form-control" id="comments" rows="3" placeholder="Enter any feedback or comments that you have"></textarea>
+                        <textarea name="comments" class="form-control" id="comments" rows="3" placeholder="Enter any feedback or comments that you have"><?php echo isset($_POST["comments"]) ? $_POST["comments"] : ''; ?></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
