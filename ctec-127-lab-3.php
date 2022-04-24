@@ -17,7 +17,7 @@
     <div class="container">
         <div class="row mt-5">
             <div class="col-md-6">
-                <h1>CTEC 127 - Winter 2022</h1>
+                <h1>CTEC 127 - Winter 2020</h1>
                 <h2>Barron Jager</h2>
                 <?php
 
